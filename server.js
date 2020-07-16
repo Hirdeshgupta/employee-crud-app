@@ -6,7 +6,7 @@ const Employee = require("./Models/employeemodel")
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-mongoose.connect('mongodb+srv://hirdesh:hirdesh@cluster0.nlo5k.mongodb.net/EmployeeData?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://hirdesh:hirdesh@cluster0.nlo5k.mongodb.net/EmployeeData?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true }, () => {
     console.log("Mongo Db connected !")
 });
 app.get("/", (req, res) => {
